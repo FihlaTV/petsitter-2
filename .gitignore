@@ -242,7 +242,6 @@ ModelManifest.xml
 .fake/
 #*.config
 #*.Config
-node_modules/
-hooks/
-platforms/
-PetSitter/**/*.js
+PetSiter/node_modules/
+PetSitter/src/app/**/*.js
+PetSitter/src/pages/**/*.js
