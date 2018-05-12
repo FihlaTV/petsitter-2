@@ -1,7 +1,7 @@
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -10,6 +10,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
+import {Geolocation} from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicPageModule.forChild(HomePage),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,6 +35,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     StatusBar,
     SplashScreen,
     GoogleMaps,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
