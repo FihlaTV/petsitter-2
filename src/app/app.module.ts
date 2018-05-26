@@ -1,7 +1,10 @@
+import { GestioneAnimaliPage } from './../pages/gestione-animali/gestione-animali';
+import { ColorActions } from './shared/animali/animali.action';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic-angular';
+import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,26 +20,31 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    GestioneAnimaliPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicPageModule.forChild(HomePage),
+    NgReduxModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    GestioneAnimaliPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GoogleMaps,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ColorActions,
+    DevToolsExtension
   ]
 })
 export class AppModule {}
