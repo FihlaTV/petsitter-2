@@ -1,5 +1,6 @@
-import { GestioneAnimaliPage } from './../pages/gestione-animali/gestione-animali';
-import { ColorActions } from './shared/animali/animali.action';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -15,27 +16,29 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
 import {Geolocation} from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { reducer } from '../reducers/animali.reducer';
+import { RestService } from '../services/rest.service';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage,
-    GestioneAnimaliPage
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicPageModule.forChild(HomePage),
-    NgReduxModule
+    StoreModule.forRoot({animali:reducer}),
+    HttpClientModule
+  
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage,
-    GestioneAnimaliPage
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -43,8 +46,9 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     GoogleMaps,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ColorActions,
-    DevToolsExtension
+    DevToolsExtension,
+    RestService
+    
   ]
 })
 export class AppModule {}

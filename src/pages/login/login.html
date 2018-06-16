@@ -24,17 +24,17 @@
       <ion-col>
         <ion-list inset>
           <ion-item>
-            <ion-input placeholder="nome" name="name" id="nome" type="text" required [(ngModel)]="nome"></ion-input>
+            <ion-input placeholder="nome" name="name" id="nome" type="text" required [(ngModel)]="user.nome"></ion-input>
 
           </ion-item>
           <ion-item>
-            <ion-input placeholder="cognome" name="cognome" id="cognome" type="text" required [(ngModel)]="cognome"></ion-input>
+            <ion-input placeholder="cognome" name="cognome" id="cognome" type="text" required [(ngModel)]="user.cognome"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input placeholder="email" name="email" id="email" type="email" required [(ngModel)]="emailReg"></ion-input>
+            <ion-input placeholder="email" name="email" id="email" type="email" required [(ngModel)]="user.email"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input placeholder="password" name="password" id="password" type="password" required [(ngModel)]="passwordReg"></ion-input>
+            <ion-input placeholder="password" name="password" id="password" type="password" required [(ngModel)]="user.password"></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
@@ -47,7 +47,7 @@
         </button>
         <button ion-button *ngIf="changeView==true" class="submit-btn" full type="submit" (click)="change()">Registrati
         </button>
-        <button ion-button *ngIf="changeView==false" class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Completa Registrazione
+        <button ion-button *ngIf="changeView==false" class="submit-btn" full type="submit" (click)="registrati()" [disabled]="!loginForm.form.valid">Completa Registrazione
         </button>
         <button ion-button *ngIf="changeView==false" class="submit-btn" full type="submit" (click)="change()">Torna al Login
         </button>
@@ -55,3 +55,10 @@
     </ion-row>
   </form>
 </ion-content>
+<!-- 
+<div *ngFor="let animale of animaliObservable | async">
+  {{animale.razza}}
+  
+</div>
+<button ion-button class="submit-btn" full type="button" (click)="add()">Aggiungi
+</button> -->

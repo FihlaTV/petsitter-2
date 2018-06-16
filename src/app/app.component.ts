@@ -1,4 +1,3 @@
-import { GestioneAnimaliPage } from './../pages/gestione-animali/gestione-animali';
 import { HomePage } from './../pages/home/home';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -24,7 +23,6 @@ export class MyApp {
     this.pages = [
       { title: 'List', component: ListPage },
       { title: 'Map', component:HomePage},
-      { title: 'Gestione Animali', component:GestioneAnimaliPage}
     ];
 
   }
